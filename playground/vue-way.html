@@ -33,6 +33,34 @@
 
     // Vue의 핵심 - Reactivity
     // 데이터의 변화를 라이브러리에서 감지해서 알아서 화면을 자동으로 그려준다
+
+
+    /* 즉시 실행 함수
+      https://developer.mozilla.org/ko/docs/Glossary/IIFE
+      실행 함수들이 애플리케이션 로직에 노출되지 않도록 다른 유효범위에 넣어준다. 
+    */
+    (function() {
+      // 라이브러리화
+      function init() {
+        Object.defineProperty(viewModel, 'str', {
+          // 속성에 접근했을 때의 동작을 정의
+          get: function () {
+            console.log('접근');
+          },
+          // 속성에 값을 할당했을 때의 동작을 정의
+          set: function (newValue) {
+            console.log('할당', newValue);
+            render(newValue);
+          }
+        });
+      }
+
+      function render(value) {
+        div.innerHTML = value;
+      }
+
+      init();
+    })();
   </script>
 </body>
 </html>
