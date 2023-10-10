@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- html은 화면에 나타나는 어떤 태그 DOM의 정보를 넣는 역할 -->
+  <div id="app"></div>
+
+
+  <!-- javascript는 해당 태그나 도움의 내용을 조작하는 역할 -->
+  <script>
+    // div태그의 정보를 받아온다
+    var div = document.querySelector('#app');
+    var str = 'hello world';
+
+    div.innerHTML = str;
+
+    // 화면 단에 적용되지 않는다
+    str = 'hello world!!!';
+
+    // div 태그에 바뀐 문자열에 정보를 다시 대입해야 화면 단에 적용된다
+    div.innerHTML = str;
+    
+  </script>
+</body>
+</html>
